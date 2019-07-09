@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="start">
+<android.support.design.widget.CoordinatorLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:id="@+id/toolbar"
+          >
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:id="@+id/frame_layout">
+
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/nav_header_main"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent">
+
+
+                <LinearLayout
+
+                        android:id="@+id/menuContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:background="@android:color/transparent"
+                        >
+
+                        <Button
+                            android:id="@+id/navmain_dashboard"
+                            style="@style/MenuNavigationButton"
+                            android:onClick="onClick"
+                            android:text="@string/dashboard" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                         android:background="@color/overlay_dark_20"/>
+
+
+                        <Button
+                            android:id="@+id/navmain_master"
+                            style="@style/MenuNavigationButton"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:onClick="showChild"
+                            android:text="@string/master" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/master_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/navmain_vehicle"
+                            style="@style/MenuNavigationButtonChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:onClick="showChild"
+                            android:text="@string/vehicle" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <LinearLayout
+                            android:id="@+id/vehicle_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_add_vehicle"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/add_vehicle" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_view_edit_vehicle"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/view_edit_vehicle" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_link_unlink_vehicle"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_link_unlink" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+
+                        <Button
+                            android:id="@+id/navmain_tyre"
+                            style="@style/MenuNavigationButtonChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:onClick="showChild"
+                            android:text="@string/tyre" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+
+                        <LinearLayout
+                            android:id="@+id/tyre_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_add_tyre"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/add_new_tyre" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_link_unlink_tyre"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/tyre_link_unlink" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_bit"
+                            style="@style/MenuNavigationButtonChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:onClick="showChild"
+                            android:text="@string/bit" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <LinearLayout
+                            android:id="@+id/bit_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_add_bit"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/add_bit" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_view_bit"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/view_bit" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_hammer"
+                            style="@style/MenuNavigationButtonChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:onClick="showChild"
+                            android:text="@string/hammer" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+
+                        <LinearLayout
+                            android:id="@+id/hammer_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_add_hammer"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/add_hammer" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_view_hammer"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/view_hammer" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_add_agent"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/add_agent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_expense_head"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/expense_head" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_other_charges_head"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/other_charges_head" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/navmain_point_details"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/point_details" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/point_details_ll"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/navmain_point_entry"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/point_entry" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                </LinearLayout>
+
+                    <Button
+                        android:id="@+id/navmain_transactions"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/transactions" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/transactions_ll"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/navmain_receipts_and_advance"
+                        style="@style/MenuNavigationButtonChild"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:drawableTint="@android:color/black"
+                        android:onClick="showChild"
+                        android:text="@string/receipts_and_advance" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+                    <LinearLayout
+                        android:id="@+id/receipts_advance_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/navmain_self_amount_receipt"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/amount_receipt_self" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_agent_amount_receipt"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/amount_receipt_agent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_receipt_agent_advance"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/receipt_amp_agent_advance" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                    </LinearLayout>
+
+
+
+                    <Button
+                        android:id="@+id/navmain_expenses_and_payments"
+                        style="@style/MenuNavigationButtonChild"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:drawableTint="@android:color/black"
+                        android:onClick="showChild"
+                        android:text="@string/expenses_and_payments" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+
+                    <LinearLayout
+                        android:id="@+id/expenses_and_payments_ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/navmain_purchase"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/purchase" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_fuel_expense"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/fuel_expense" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_material_expense"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/material_expense" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                        <Button
+                            android:id="@+id/navmain_miscellaneous_expense"
+                            style="@style/MenuNavigationButtonSubChild"
+                            android:onClick="onClick"
+                            android:text="@string/miscellaneous_expense" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/navmain_other_payment_issue"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/other_payment_issue" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                </LinearLayout>
+
+                    <Button
+                        android:id="@+id/navmain_labour_management_details"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/labour_management_details" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/labour_management_details_ll"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/navmain_labour_role"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/labour_role" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_add_labour"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/add_labour" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_view_edit_labour"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/view_edit_labour" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_labour_link_unlink"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/labour_link_unlink" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_labour_advance"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/labour_advance" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_labour_advance_refund"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/labour_advance_refund" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+                </LinearLayout>
+
+                    <Button
+                        android:id="@+id/navmain_services"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/services" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/services_ll"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/navmain_vehicle_service_add"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/vehicle_service_add" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                        android:id="@+id/navmain_vehicle_service_maintenance"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/vehicle_service_maintenance" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                </LinearLayout>
+
+                    <Button
+                        android:id="@+id/navmain_reports"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/reports" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:id="@+id/reports_ll"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/navmain_reports_point_details"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/point_details" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/reports_point_details_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_drill_log"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/drill_log" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_rpm_details"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/rpm_details" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_point_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/point_report" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+
+                        <Button
+                            android:id="@+id/navmain_reports_agent_balance_sheet"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/agent_balance_sheet" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+                        <Button
+                            android:id="@+id/navmain_reports_agent_details"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/agent_details" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+                        <Button
+                            android:id="@+id/navmain_reports_vehicle"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/vehicle" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/reports_vehicle_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_vehicle_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_report" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_vehicle_pair_unpair_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_pair_unpair_report" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_vehicle-service_reminder"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_service_reminder" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_daily_km_entry"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/daily_km_entry" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_reports_tyre"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/tyre" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+                        <Button
+                            android:id="@+id/navmain_reports_bit"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/bit" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <Button
+                            android:id="@+id/navmain_reports_hammer"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="onClick"
+                            android:text="@string/hammer" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+                        <Button
+                            android:id="@+id/navmain_reports_receipts_advance"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/receipts_and_advance" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/reports_receipts_and_advance_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_amount_receipt"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/amount_receipt" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_receipts_advance"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/receipt_amp_advance" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_reports_expenses_payments"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/expenses_and_payments" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/reports_expenses_and_payments_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <Button
+                                android:id="@+id/navmain_fuel_expense_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/fuel_expense" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_material_expense_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/material_expense" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_miscellaneous_expense_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/miscellaneous_expense" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_reports_daily_credit_debit"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/daily_credit_amp_devit_reports" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/daily_credit_debit_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_manager_wise_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/manager_wise" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_vehicle_wise_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_wise" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_reports_balance"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/balance_reports" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/balance_reports_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_manager_wise_balance_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/manager_wise" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_vehicle_wise_balance_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_wise" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_company_wise_balance_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/company_wise" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/navmain_reports_labour"
+                            style="@style/MenuNavigationButtonChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:onClick="showChild"
+                            android:text="@string/labour" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/labour_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_labour_details_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/labour_details" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_labour_advance_refund_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/labour_advance_refund" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_date_wise_labour_advance_refund"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/date_wise_labour_advance_refund" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_labour_advance_issued_report"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/labour_advance_issued" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+
+                        <Button
+                            android:id="@+id/navmain_reports_general_alert"
+                            style="@style/MenuNavigationButtonChild"
+                            android:onClick="showChild"
+                            android:drawableEnd="@drawable/ic_add"
+                            android:drawableTint="@android:color/black"
+                            android:text="@string/general_alert" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/overlay_dark_20"/>
+
+                        <LinearLayout
+                            android:id="@+id/general_alert_ll"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:id="@+id/navmain_vehicle_insurance"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/vehicle_insurance" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_labour_insurance"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/labour_insurance" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_permit_details"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/permit_details" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_road_tax"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/road_tax" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+
+                            <Button
+                                android:id="@+id/navmain_fitness_certificate"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/fitness_certificate" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                            <Button
+                                android:id="@+id/navmain_pollution_certificate"
+                                style="@style/MenuNavigationButtonSubChild"
+                                android:onClick="onClick"
+                                android:text="@string/pollution_certificate" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/overlay_dark_20" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <Button
+                                android:id="@+id/navmain_change_password"
+                                style="@style/MenuNavigationButton"
+                                android:onClick="onClick"
+                                android:text="@string/change_password" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+
+                    <Button
+                        android:id="@+id/navmain_menu_access_permissions"
+                        style="@style/MenuNavigationButton"
+                        android:drawableEnd="@drawable/ic_add"
+                        android:onClick="showChild"
+                        android:text="@string/menu_access_permissions" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:id="@+id/menu_access_permission_ll"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/navmain_user_group"
+                        style="@style/MenuNavigationButtonChild"
+                        android:onClick="onClick"
+                        android:text="@string/user_group" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                </LinearLayout>
+                    <Button
+                            android:id="@+id/navmain_set_pin"
+                            style="@style/MenuNavigationButton"
+                            android:onClick="onClick"
+                            android:text="@string/set_pin" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+                    <Button
+                            android:id="@+id/navmain_logout"
+                            style="@style/MenuNavigationButton"
+                            android:onClick="onClick"
+                            android:text="@string/logout" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/overlay_dark_20"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </android.support.design.widget.NavigationView>
+</android.support.v4.widget.DrawerLayout>
